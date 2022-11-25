@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snakess</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        canvas {
+            display: none;
+            margin-top: 30px;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        button {
+            padding: 10px 30px;
+            font-size: 20px;
+            border: 0;
+            background: whitesmoke;
+            font-weight: 800;
+            width: 100%;
+            margin-bottom: 20px;
+            cursor: pointer;
+            box-shadow: 5px 5px 5px rgba(59, 59, 59, 0.197);
+            transition: all .2s;
+        }
+
+        button:hover {
+            transform: translateX(-5px);
+        }
+
+        .layer-song {
+            display: none;
+        }
+
+        .popup {
+            position: absolute;
+            background: rgba(128, 128, 128, 0.412);
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup .card {
+            background-color: white;
+            width: 30%;
+            /* height: 40%; */
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .popup .card button {
+            padding: 10px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .score,
+        .time,
+        .nama {
+            position: absolute;
+            top: 20px;
+        }
+
+        .time {
+            left: 40%;
+        }
+
+        .score {
+            left: 60%;
+        }
+
+        .nama {
+            left: 20%;
+        }
+
+        .nama h1 {
+            font-size: 30px;
+            text-transform: capitalize;
+        }
+
+        .loading h1 {
+            font-size: 40px;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            border: 1px solid rgba(128, 128, 128, 0.412);
+            outline: none;
+        }
+
+        .over {
+            display: none;
+        }
+
+        .button-setting {
+            display: none;
+        }
+
+
+        .ranking {
+            display: none;
+        }
+
+        .setting {
+            display: none;
+        }
+
+        .usernameLayer {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading">
+        <h1></h1>
+    </div>
+    <div class="score">
+        <h1></h1>
+    </div>
+    <div class="nama">
+        <h1></h1>
+    </div>
+    <div class="time">
+        <h1></h1>
+    </div>
+    <canvas></canvas>
+    <div class="layer1">
+        <h1>Introduction</h1>
+        <h3>Control ular</h3>
+        <h4 style="margin-bottom: 10px;margin-top: 15px;">tombol a untuk mengontol ke arah kiri</h4>
+        <h4 style="margin-bottom: 10px;">tombol d untuk mengontol ke arah kanan</h4>
+        <h4 style="margin-bottom: 10px;">tombol w untuk mengontol ke arah atas</h4>
+        <h4 style="margin-bottom: 10px;">tombol s untuk mengontol ke arah bawah</h4>
+        <h4 style="margin-bottom: 20px;">tombol esc untuk pause game</h4>
+
+        <div class="username">
+            <input class="input1" type="text" placeholder="username" name="" id="">
+            <button onclick="saveNama()">Simpan</button>
+        </div>
+        <div class="button-setting">
+            <button onclick="play()">play</button>
+            <button onclick="setting()">Setting</button>
+        </div>
+    </div>
+    <div class="usernameLayer">
+        <h1 style="margin-bottom: 20px;">Ganti Username</h1>
+        <div class="username">
+            <input class="input2" type="text" placeholder="username" name="" id="">
+            <button onclick="saveNama()">Simpan</button>
+        </div>
+    </div>
+    <div class="setting">
+        <h1 style="margin-bottom:20px;text-align:center">Setting</h1>
+        <div class="button-setting-option">
+            <button onclick="soong()">Choose Song</button>
+            <button onclick="resetUsername()">Change Username</button>
+            <button onclick="quit()">quit</button>
+        </div>
+    </div>
+
+    <div class="layer-song">
+        <h1>pilih song</h1>
+    </div>
+    <div class="pause popup">
+        <div class="card">
+            <h1>Pause</h1>
+            <button onclick="continues()">continue</button>
+            <button onclick="quit()">quit</button>
+        </div>
+    </div>
+    <div class="over popup">
+        <div class="card">
+            <h1>Game Over !!</h1>
+            <button onclick="ranking()">Rank</button>
+            <button onclick="quit()">quit</button>
+        </div>
+    </div>
+    <div class="ranking popup">
+        <div class="card">
+            <h1>Top Score</h1>
+            <h2></h2>
+            <button onclick="quit()">quit</button>
+        </div>
+    </div>
+
+    <script src="src/Game.js"></script>
+</body>
+
+</html>

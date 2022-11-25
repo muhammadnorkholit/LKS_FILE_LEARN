@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Nunito:wght@300&family=Poppins:wght@300&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #f5c14e;
+            --size: 200px;
+        }
+
+        body {
+            background-color: #36505d;
+            color: var(--primary-color);
+            font-family: 'Finger Paint';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        button {
+            outline: none;
+            border: none;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+        }
+
+        #restartBtn {
+            background-color: var(--primary-color);
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 10px;
+            font-weight: 700;
+            display: block;
+            margin: auto;
+            cursor: pointer;
+            transition: all .5s;
+        }
+
+        #restartBtn:hover {
+            /* opacity: .9; */
+            transform: scale(1.1);
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        .boxs {
+            width: calc(var(--size)*3);
+            height: var(--size)/3;
+            margin: auto;
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .box {
+            width: calc(var(--size) - 2px);
+            height: calc(var(--size) - 2px);
+            border: 1px solid orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .box:nth-child(1),
+        .box:nth-child(4),
+        .box:nth-child(7) {
+            border-left: none;
+        }
+
+        .box:nth-child(3),
+        .box:nth-child(6),
+        .box:nth-child(9) {
+            border-right: none;
+        }
+
+        .box:nth-child(9),
+        .box:nth-child(8),
+        .box:nth-child(7) {
+            border-bottom: none;
+        }
+
+        .box:nth-child(1),
+        .box:nth-child(2),
+        .box:nth-child(3) {
+            border-top: none;
+        }
+
+        .box h1 {
+            font-size: 4rem;
+            margin: 0;
+            position: absolute;
+            font-size: 150px;
+        }
+
+        .won {
+            background-color: #253741;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="player-text">TIC TAC TOE </h1>
+        <button id="restartBtn">Restart</button>
+        <div class="boxs">
+            <div class="box" id="0">
+                <h1></h1>
+            </div>
+            <div class="box" id="1">
+                <h1></h1>
+            </div>
+            <div class="box" id="2">
+                <h1></h1>
+            </div>
+            <div class="box" id="3">
+                <h1></h1>
+
+            </div>
+            <div class="box" id="4">
+                <h1></h1>
+            </div>
+            <div class="box" id="5">
+                <h1></h1>
+            </div>
+            <div class="box" id="6">
+                <h1></h1>
+            </div>
+            <div class="box" id="7">
+                <h1></h1>
+            </div>
+            <div class="box" id="8">
+                <h1></h1>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>

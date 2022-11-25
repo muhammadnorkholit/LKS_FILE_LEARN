@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano</title>
+    <style>
+        body {
+            background-image: linear-gradient(to left, rgb(5, 206, 232) 50%, rgb(0, 94, 255));
+            min-height: 100vh;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #background {
+            position: absolute;
+            top: 10%;
+            width: 25%;
+            height: 85%;
+
+            left: calc(50% - 25%/2);
+            background-image: linear-gradient(to bottom, rgb(0, 225, 255)10%, rgb(0, 94, 255));
+        }
+
+        #key {
+            position: absolute;
+            top: 10%;
+            width: 25%;
+            height: 85%;
+            left: calc(50% - 25%/2);
+        }
+
+        #score {
+            position: absolute;
+            top: 0;
+            width: 25%;
+            height: 10%;
+            left: calc(50% - 25%/2);
+            text-align: center;
+            line-height: 100px;
+        }
+
+        #piano {
+            position: absolute;
+            top: 10%;
+            width: 25%;
+            height: 85%;
+            left: calc(50% - 25%/2);
+        }
+
+        .start {
+            position: absolute;
+            top: 98%;
+            width: 25%;
+            height: 10%;
+            left: calc(50% - 25%/2);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .start button {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 0;
+            outline: none;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all .6s;
+            cursor: pointer;
+        }
+
+        .start button:hover {
+            transform: scale(1.5);
+            background-color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="background"></canvas>
+    <canvas id="piano"></canvas>
+    <canvas id="key"></canvas>
+    <h1 id="score">0</h1>
+
+    <div class="start">
+        <button id="start">Start</button>
+    </div>
+
+
+    <script src="/Game.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        const canvas = document.querySelector('canvas')
+        const c = canvas.getContext('2d')
+        canvas.width = 1000
+        canvas.height = 500
+        let keys = { left: false, right: false }
+        let obj1 = { x: 600, y: 200, w: 200, h: 200, velocity: { x: 0, y: 0 } }
+        let obj2 = { x: 200, y: 200, w: 200, h: 200, velocity: { x: 0, y: 0 } }
+        function a() {
+            c.clearRect(0, 0, canvas.width, canvas.height)
+
+            c.fillRect(obj1.x, obj1.y, obj1.w, obj1.h)
+            c.fillRect(obj2.x, obj2.y, obj2.w, obj2.h)
+            if (keys.left) {
+                obj1.velocity.x = -10
+                console.log(obj1.x);
+            } else if (keys.right) {
+                obj1.velocity.x = 10
+            } else {
+                obj1.velocity.x = 0
+            }
+
+            const hori = {
+                x: obj1.x + obj1.velocity.x,
+                y: obj1.y,
+                w: obj1.w,
+                h: obj1.h
+            }
+
+            if (collision(hori, obj2)) {
+                console.log(obj1.x, obj1.velocity.x);
+                console.log("kena");
+                obj1.velocity.x = 0
+            }
+            obj1.x += obj1.velocity.x
+
+            requestAnimationFrame(a)
+        }
+        a()
+
+        function collision(o1, o2) {
+            if (o1.x >= o2.x + o2.w) return false
+            else if (o1.y >= o2.y + o2.h) return false
+            else if (o1.x + o1.w <= o2.x) return false
+            else if (o1.y + o1.h <= o2.y) return false
+            else return true
+        }
+
+
+        addEventListener("keydown", ({ key }) => {
+            switch (key) {
+                case "d":
+                    keys.right = true;
+                    break;
+                case "a":
+                    keys.left = true;
+                    break;
+                case "w":
+                    break;
+
+                default:
+                    break;
+            }
+        });
+        addEventListener("keyup", ({ key }) => {
+            switch (key) {
+                case "d":
+                    keys.right = false;
+                    break;
+                case "a":
+                    keys.left = false;
+                    break;
+                case "w":
+                    break;
+
+                default:
+                    break;
+            }
+        });
+    </script>
+</body>
+
+</html>
